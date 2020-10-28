@@ -1,22 +1,9 @@
-const mysql = require("mysql");
-
-const {viewEmployee, viewEmployeeByDepartment, viewRoles, viewDepartments}  = require("./viewtables.js");
 const {addDepartment, addRole, addEmployee} = require("./addtotables.js");
+const {viewEmployees, viewEmployeeByDepartment, viewRoles, viewDepartments} = require("./viewtables.js")
 
 const inquirer = require("inquirer");
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "mysqlpassword",
-    database: "employees_db"
-});
 
-connection.connect(function(err){
-    if (err) throw err;
-    console.log("connected as id "+connection.threadId);
-    promptUser();
-})
+
 
 function promptUser() {
     inquirer.prompt({
@@ -26,8 +13,8 @@ function promptUser() {
         choices: [
             "View All Employees",
             "View ALL Employees by Department",
-            "Add a department",
-            "Add a role",
+            "Add a Department",
+            "Add a Role",
             "Add an Employee",
             "Remove an Employee",
             "Update Employee Roles",
@@ -38,18 +25,18 @@ function promptUser() {
     }).then(function(answer){
         switch (answer.action) {
             case "View ALL Employees":
-                viewEmployee();
+                viewEmployees();
                 break;
             case "View ALL Employees by Department":
                 viewEmployeeByDepartment();
                 break;
-            case "Add a department":
+            case "Add a Department":
                 addDepartment();
-                break ;
-            case "Add a role":
+                break;
+            case "Add a Role":
                 addRole();
                 break;
-            case "Add an employee":
+            case "Add an Employee":
                 addEmployee();
                 break;
             case "Remove an Employee":
@@ -61,7 +48,7 @@ function promptUser() {
             case "Update Employee Manager":
                 updateManager();
                 break;
-            case "View departments":
+            case "View Departments":
                 viewDepartments();
                 break;
             case "View all roles":
@@ -71,3 +58,5 @@ function promptUser() {
         }
     })
 };
+
+promptUser();

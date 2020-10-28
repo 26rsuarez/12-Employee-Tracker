@@ -1,33 +1,48 @@
-function viewEmployee(){
+const mysql = require("mysql");
+
+const connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "mysqlpassword",
+    database: "employees_db"
+});
+
+
+connection.connect(function(err){
+    if (err) throw err;
+})
+
+const viewEmployees = function(){
     const query = "SELECT * FROM employees";
     connection.query(query, function(err, res){
         if (err) throw err;
-        console.log(res);
+        console.log("Please work")
+        console.table(res);
     })
 }
-function viewEmployeeByDepartment(){
+const viewEmployeeByDepartment = function(){
     const query = "SELECT * FROM employees";
     connection.query(query, function(err, res){
         if (err) throw err;
-        console.log(res);
+        console.table(res);
     })
 }
-function viewRoles(){
+const viewRoles = function(){
     const query = "SELECT * FROM roles";
     connection.query(query, function(err, res){
         if (err) throw err;
-        console.log(res);
+        console.table(res);
     })
 }
-function viewDepartments(){
+const viewDepartments = function(){
     const query = "SELECT * FROM departments";
     connection.query(query, function(err, res){
         if (err) throw err;
-        console.log(res);
+        console.table(res);
     })
 }
 
-module.exports = viewEmployee;
-module.exports = viewEmployeeByDepartment;
-module.exports = viewRoles;
-module.exports = viewDepartments;
+
+
+module.exports = {viewEmployees, viewEmployeeByDepartment, viewRoles, viewDepartments};
