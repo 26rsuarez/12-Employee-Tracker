@@ -1,6 +1,6 @@
 const {addDepartment, addRole, addEmployee} = require("./addtotables.js");
 const {viewEmployees, viewEmployeeByDepartment, viewRoles, viewDepartments} = require("./viewtables.js")
-
+const {updateRole} = require("./updateroles");
 const inquirer = require("inquirer");
 
 
@@ -12,13 +12,13 @@ function promptUser() {
         message: "What would you like to do?",
         choices: [
             "View All Employees",
-            "View ALL Employees by Department",
+            // "View ALL Employees by Department",
             "Add a Department",
             "Add a Role",
             "Add an Employee",
-            "Remove an Employee",
+            // "Remove an Employee",
             "Update Employee Roles",
-            "Update Employee Manager",
+            // "Update Employee Manager",
             "View Departments",
             "View all roles"
         ]
@@ -27,8 +27,8 @@ function promptUser() {
             case "View ALL Employees":
                 viewEmployees();
                 break;
-            case "View ALL Employees by Department":
-                viewEmployeeByDepartment();
+            // case "View ALL Employees by Department":
+            //     viewEmployeeByDepartment();
                 break;
             case "Add a Department":
                 addDepartment();
@@ -39,14 +39,14 @@ function promptUser() {
             case "Add an Employee":
                 addEmployee();
                 break;
-            case "Remove an Employee":
-                removeEmployee();
-                break;
+            // case "Remove an Employee":
+            //     removeEmployee();
+            //     break;
             case "Update Employee Roles":
                 updateRole();
                 break;
-            case "Update Employee Manager":
-                updateManager();
+            // case "Update Employee Manager":
+            //     updateManager();
                 break;
             case "View Departments":
                 viewDepartments();

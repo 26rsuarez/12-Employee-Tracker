@@ -36,7 +36,6 @@ const addRole = function (){
     connection.query("SELECT * FROM departments", function(err, res){
         const departments = [];
         if (err) throw err;
-        console.log("yes")
         for (let i=0; i<res.length; i++){
             departments.push(res[i].name)
         }

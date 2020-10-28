@@ -14,10 +14,13 @@ connection.connect(function(err){
 })
 
 const viewEmployees = function(){
-    const query = "SELECT * FROM employees";
-    connection.query(query, function(err, res){
+    connection.query("SELECT employees.id, employees.first_name, employees.last_name,"+ 
+    " roles.title, departments.name AS department,"+
+    " CONCAT(mng.first_name,\" \",mng.last_name) as Manager"+
+    " FROM employees INNER JOIN roles ON employees.role_id = roles.id"+
+    " INNER JOIN departments on roles.department_id = departments.id"+
+    " LEFT JOIN employees AS mng ON employees.manager_id = mng.id", function(err, res){
         if (err) throw err;
-        console.log("Please work")
         console.table(res);
     })
 }
