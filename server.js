@@ -24,12 +24,12 @@ function promptUser() {
         ]
     }).then(function(answer){
         switch (answer.action) {
-            case "View ALL Employees":
+            case "View All Employees":
                 viewEmployees();
                 break;
             // case "View ALL Employees by Department":
             //     viewEmployeeByDepartment();
-                break;
+                // break;
             case "Add a Department":
                 addDepartment();
                 break;
