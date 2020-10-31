@@ -77,19 +77,7 @@ const updateRole = function () {
 
  
 
-   
 
-
-
-    //this functions return an array, but the array is not showing up in the choices???
-    // 
-    //     
-
-    //         if (err) throw err;
-    //         
-    //         }}).
-    //         
-    //         })
 }
 
 module.exports = { updateRole };
