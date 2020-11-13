@@ -17,6 +17,10 @@ Making sure the different functions are being called correctly, including the qu
 
 make sure node is installed, then run index.js, a prompt will be shown where the user will decide what actions to take.
 
+This video shows how the application works
+
+https://drive.google.com/file/d/1c7dW-C44sCwDg9dFS31bQv3F_vLL_6pZ/view
+
 The code for this file is available at
 
 https://www.github.com/26rsuarez/12-Employee-Tracker
